@@ -37,7 +37,7 @@ def search(twts):
 			if not i.retweeted:
 				try:
 					api.retweet(i.id)
-					print "rt " + (i.text)
+					print ("rt " + (i.text))
 					
 					# huge thanks to github user andrewkerr5 for providing the fix for hashtags
 					if "follow" in i.text or "#follow" in i.text or "Follow" in i.text or "#Follow" in i.text or "FOLLOW" in i.text or "#FOLLOW" in i.text or "following" in i.text or "#following" in i.text or "FOLLOWING" in i.text or "#FOLLOWING" or "Following" in i.text or "#Following" in i.text:
@@ -50,7 +50,7 @@ def search(twts):
 			if ("fav" in i.text or "Fav" in i.text or "FAV" in i.text) and not i.favorited:
 				try:
 					api.create_favorite(i.id)
-					print "fav " + (i.text)
+					print ("fav " + (i.text))
 				except Exception:
 					pass
 			
@@ -59,7 +59,7 @@ def search(twts):
 
 def run():
 	for key in ["RT to win", "retweet to win"]:
-		print "\nSearching again\n"
+		print ("\nSearching again\n")
 		search(api.search(q=key))
 
 
